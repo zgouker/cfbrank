@@ -4,7 +4,7 @@ def reindex_from_1(df):
     df2.index = df2.index+1
     return df2
 	
-team_request_get = requests.get(url="https://api.collegefootballdata.com/teams?year=2019")
+team_request_get = requests.get(url="https://api.collegefootballdata.com/teams?year=2017")
 team_df =  pandas.io.json.json_normalize(team_request_get.json())
 fbs_team_df = team_df[team_df.conference.notnull()]
 fbs_team_df.to_csv("data/teams.csv")
